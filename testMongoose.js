@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/testMongoose2024');
 
-var schema = mongoose.Schema({ name: String })
+var Topic = require('./models/topic.js').Topic
 
-schema.methods.describe = function(){
-    console.log(this.name + " — тема сохранена")
-}
+var topic = new Topic({
+    title: "Асинхронность",
+    nick: "async",
+})
 
-const Topic = mongoose.model('Topic', schema);
-
-const item = new Topic({ name: 'Promise' });
-item.save().then(() => item.describe());
+topic.save();
