@@ -2,15 +2,9 @@ var express = require('express');
 var router = express.Router();
 var Topic = require('../models/topic').Topic;
 
-/* GET topics listing. */
-router.get('/', function(req, res, next) {
-    res.send('Новый маршрутизатор, для маршрутов, начинающихся с topics');
-});
-
 /* Страница темы */
 router.get("/:nick", async function(req, res, next) {
     var topics = await Topic.find({nick: req.params.nick});
-    console.log(topics)
     if(!topics.length) return next(new Error("Такой темы нет на сайте JavaScript"))
     var topic = topics[0];
     res.render('topic', {
