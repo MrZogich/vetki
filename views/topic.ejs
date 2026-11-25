@@ -1,4 +1,18 @@
 <% layout('./layout/page.ejs') %>
-<h1><%= title %></h1>
-<img src="<%= picture %>" alt=""/>
-<h4>Коротко о теме: <%=desc%></h4>
+<section class="container topic">
+  <a href="/" class="back">← На главную</a>
+  <div class="row g-5 align-items-center mt-1">
+    <div class="col-lg-5">
+      <img class="topic-img" src="<%= picture %>" alt="<%= title %>">
+    </div>
+    <div class="col-lg-7">
+      <span class="pill">JavaScript</span>
+      <h1><%= title %></h1>
+      <p class="lead-text"><%= desc %></p>
+    </div>
+  </div>
+  <% if (locals.code) { %>
+  <h2 class="code-title">Пример кода</h2>
+  <pre class="code"><code><%= code %></code></pre>
+  <% } %>
+</section>

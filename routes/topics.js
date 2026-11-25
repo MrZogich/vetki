@@ -10,7 +10,9 @@ router.get("/:nick", async function(req, res, next) {
     res.render('topic', {
         title: topic.title,
         picture: topic.avatar,
-        desc: topic.desc
+        desc: topic.desc,
+        code: topic.code,
+        active: topic.nick
     })
 });
 

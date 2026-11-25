@@ -1,4 +1,7 @@
 <% layout('./layout/page.ejs') %>
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<section class="container error-page">
+  <h2><%= error.status || '' %></h2>
+  <h1><%= message %></h1>
+  <a href="/" class="back">← На главную</a>
+  <pre class="code"><code><%= error.stack %></code></pre>
+</section>

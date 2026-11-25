@@ -10,6 +10,7 @@ var topicSchema = new Schema({
     },
     avatar: String,
     desc: String,
+    code: String,
     created: {
         type: Date,
         default: Date.now
